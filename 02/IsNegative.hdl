@@ -1,0 +1,10 @@
+CHIP IsNegative {
+    IN  
+        in[16];
+
+    OUT 
+        out; // 1 if negative, 0 if positive
+
+    PARTS:
+    Or(a=in[15], b=false, out=out);
+}

@@ -1,0 +1,13 @@
+CHIP IsZero {
+    IN  
+        in[16];
+
+    OUT 
+        out; // 1 if zero, 0 if non-zero
+
+    PARTS:
+    Or8Way(in=in[0..7], out=first-half);
+    Or8Way(in=in[8..15], out=second-half);
+    Or(a=first-half, b=second-half, out=non-zero);
+    Not(in=non-zero, out=out);
+}
